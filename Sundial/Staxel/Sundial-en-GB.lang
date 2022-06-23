@@ -1,0 +1,13 @@
+﻿language.code=en-GB
+language=English
+
+mods.Sundial.commands.SetDayLengthCommand.description=^c:F2E200;setDayLength^c:pop; ^c:FFFFFF;minutes^c:pop;
+mods.Sundial.commands.SetDayLengthCommand.invalidArgs=Please provide a valid number of minutes.
+mods.Sundial.commands.SetDayLengthCommand.success=Successfully changed day length to {0-minutes} minutes.
+
+mods.Sundial.commands.CheckDayLengthCommand.description=^c:F2E200;checkDayLength^c:pop;
+mods.Sundial.commands.CheckDayLengthCommand.response=Days are currently {0-minutes} minutes long.
+
+mods.Sundial.effects.SynchronizeDayLengthEffect.synchronized=Client time has been synchronized with server: days are now {0-minutes} minutes long.
+
+mods.Sundial.hooks.SundialHook.disconnect=The Sundial mod is required to play on this server.
