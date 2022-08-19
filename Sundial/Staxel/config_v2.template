@@ -1,0 +1,12 @@
+﻿// DO NOT TOUCH THIS TEMPLATE FILE OR THINGS WILL BREAK
+{
+  "__version__": 2,  // Internal config file format version. Do NOT change.
+  "Sundial": {
+    "enabled": true,         // Whether or not Sundial should be enabled.
+    "secondsPerDay": 1320.0  // How long in-game days are, in seconds. Use the SetDayLength command for this.
+  },
+  "ModCheck": {
+    "enabled": true,  // Whether or not Sundial installation should be enforced.
+    "timeout": 3000   // How long to wait for verification of Sundial installation, in milliseconds.
+  }
+}

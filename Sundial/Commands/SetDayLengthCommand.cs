@@ -1,5 +1,4 @@
 ﻿using AetharNet.Moonbow.Experimental.Utilities;
-using AetharNet.Sundial.Effects;
 using AetharNet.Sundial.Hooks;
 using Plukit.Base;
 using Staxel.Commands;
@@ -34,25 +33,32 @@ namespace AetharNet.Sundial.Commands
 
             var players = new Lyst<Entity>();
             api.Facade().GetPlayers(players);
-
-            var data = BlobAllocator.Blob(true);
-            data.SetDouble("secondsPerDay", minutes * 60);
-
+            
             Constants.SecondsPerIngameDay = minutes * 60;
-            SundialHook.ModDirectoryManager.WriteFileFromBlob("config.json", data);
 
-            if (!SundialHook.IsEnabled)
+            if (!SundialHook.IsSundialEnabled)
             {
-                SundialHook.IsEnabled = true;
-                foreach (var player in players)
+                SundialHook.IsSundialEnabled = true;
+
+                if (SundialHook.IsModCheckEnabled)
                 {
-                    ModHelper.RequestModCheck(player, SundialHook.ModName, isInstalled =>
+                    foreach (var player in players)
                     {
-                        if (isInstalled)
-                            SundialHook.SynchronizePlayer(player);
-                        else
-                            SundialHook.KickPlayer(player);
-                    });
+                        ModHelper.RequestModCheck(player, SundialHook.ModName, SundialHook.ModCheckTimeout, isInstalled =>
+                        {
+                            if (isInstalled)
+                                SundialHook.SynchronizePlayer(player);
+                            else
+                                SundialHook.KickPlayer(player);
+                        });
+                    }
+                }
+                else
+                {
+                    foreach (var player in players)
+                    {
+                        SundialHook.SynchronizePlayer(player);
+                    }
                 }
             }
             else
@@ -62,6 +68,8 @@ namespace AetharNet.Sundial.Commands
                     SundialHook.SynchronizePlayer(player);
                 }
             }
+            
+            SundialHook.SaveConfigChanges();
 
             responseParams = new object[] {minutes.ToString("F2")};
             return "mods.Sundial.commands.SetDayLengthCommand.success";

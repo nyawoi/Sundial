@@ -33,8 +33,8 @@
       <PlatformTarget>x64</PlatformTarget>
     </PropertyGroup>
     <ItemGroup>
-        <Reference Include="Moonbow.Experimental, Version=0.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <HintPath>$(StaxelBin)\Moonbow.Experimental.dll</HintPath>
+        <Reference Include="Moonbow.Experimental, Version=0.4.1.0, Culture=neutral, PublicKeyToken=null">
+          <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Staxel\bin\Moonbow.Experimental.dll</HintPath>
         </Reference>
         <Reference Include="Plukit.Base, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
           <HintPath>$(StaxelBin)\Plukit.Base.dll</HintPath>
@@ -53,11 +53,13 @@
         <Compile Include="Commands\SetDayLengthCommand.cs" />
         <Compile Include="Effects\SynchronizeDayLengthEffect.cs" />
         <Compile Include="Effects\SynchronizeDayLengthEffectBuilder.cs" />
+        <Compile Include="Hooks\SundialCleanupHook.cs" />
         <Compile Include="Hooks\SundialHook.cs" />
         <Compile Include="ModDependency.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
     </ItemGroup>
     <ItemGroup>
+      <Content Include="Staxel\config_v2.template" />
       <Content Include="Staxel\Sundial-en-GB.lang" />
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

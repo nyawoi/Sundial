@@ -8,6 +8,7 @@ mods.Sundial.commands.SetDayLengthCommand.success=Successfully changed day lengt
 mods.Sundial.commands.CheckDayLengthCommand.description=^c:F2E200;checkDayLength^c:pop;
 mods.Sundial.commands.CheckDayLengthCommand.response=Days are currently {0-minutes} minutes long.
 
-mods.Sundial.effects.SynchronizeDayLengthEffect.synchronized=Client time has been synchronized with server: days are now {0-minutes} minutes long.
+mods.Sundial.effects.SynchronizeDayLengthEffect.synchronized=^c:F2E200;[Sundial]^c:pop; Client time has been synchronized with server: days are now {0-minutes} minutes long.
 
+mods.Sundial.hooks.SundialHook.modCheckDisabled=^c:F2E200;Though installation of Sundial is not strictly enforced on this server, it is highly recommended you install it for the optimal playing experience.^c:pop;
 mods.Sundial.hooks.SundialHook.disconnect=The Sundial mod is required to play on this server.
